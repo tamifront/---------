@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-shell">
+    <header class="hero">
+        <div class="hero-eyebrow"> Portfolio</div>
+        <div class="title">Frontend Developer.</div>
+        <div class="subtitle">Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.</div>
+        <div class="hero-actions">
+            <a class="btn btn-ghost" href="#projects">Посмотреть работы</a>
+        </div>
+        <div class="hero-line" aria-hidden="true"></div>
+    </header>
+
+    <section class="portfolio-section" id="projects">
+        <div class="portfolio-title"><span class="dot" aria-hidden="true"></span>Мои Работы</div>
+        <div class="portfolio-subtitle">Все эти работы служат примером моих навыков.</div>
+        <div class="portfolio-cards">
+            <article class="portfolio-card reveal">
+                <div class="portfolio-tag">project 1</div>
+                <img class="portfolio-img" src="./img/Снимок экрана (91).png" alt="Project 1 image placeholder">
+                <div class="portfolio-card-title"></div>
+                <div class="portfolio-card-desc">Beauty Sphere - истинный путь к красоте. </div>
+                <div class="portfolio-card-links">
+                    <a href="https://tamifront.github.io/beautysphere/" class="portfolio-link-placeholder" target="_blank" >открыть</a>
+               
+                </div>
+            </article>
+            <article class="portfolio-card reveal">
+                <div class="portfolio-tag">project 2</div>
+                <img class="portfolio-img" src="./img/Снимок экрана (92).png" alt="Project 2 image placeholder">
+                <div class="portfolio-card-title"></div>
+                <div class="portfolio-card-desc">Tooth Clinic - ваша лучшая клиника!</div>
+                <div class="portfolio-card-links">
+                    <a href="https://tamifront.github.io/tooth-clinic/" class="portfolio-link-placeholder" target="_blank" >открыть</a>
+                   
+                </div>
+            </article>
+            <article class="portfolio-card reveal">
+                <div class="portfolio-tag">project 3</div>
+                <img class="portfolio-img" src="./img/Снимок экрана (93).png" alt="Project 3 image placeholder">
+                <div class="portfolio-card-title"></div>
+                <div class="portfolio-card-desc">Школа программирования - отличный выбор!</div>
+                <div class="portfolio-card-links">
+                    <a href="https://tamifront.github.io/-CodersCamp/" class="portfolio-link-placeholder" >открыть</a>
+                    
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-title"><span class="dot" aria-hidden="true"></span>Почему стоит выбрать меня</div>
+        <div class="about-inner reveal">
+            <div class="about-text">
+                Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
+                <span class="highlight">Скорость - моя фишка</span>
+                <br><br>
+                Держу баланс между визуальной силой, удобством и скоростью загрузки.
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section reveal">
+        <div class="cta-title">Готов сделать сайт, который выделит тебя на фоне конкурентов</div>
+        <div class="cta-text">Если хочешь сильный визуал + продуманную структуру, напиши мне и я предложу концепцию под твой проект.</div>
+        <div id="contactInfo" class="contact-info-popup">
+            <span class="contact-number">+77064216031</span><br>
+            <span class="contact-name">имя: Тамила</span>
+        </div>
+        <aside class="contact-side-card">
+            <div class="contact-label">Связаться со мной</div>
+            <div class="contact-details">
+                <a class="contact-number" href="https://wa.me/77064216031" target="_blank" rel="noopener">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.2em; vertical-align: middle; margin-right: 0.32em;">+77064216031
+                </a>
+                <span class="contact-name">Тамила</span>
+            </div>
+        </aside>
+        <style>
+            .contact-side-card {
+                position: fixed;
+                right: 42px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: linear-gradient(120deg, #101833 65%, #233378 100%);
+                border-radius: 28px;
+                box-shadow: 0 12px 44px rgba(79, 124, 255, 0.17), 0 2px 8px rgba(0,0,0,.18);
+                padding: 32px 36px 24px 28px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                min-width: 275px;
+                z-index: 10;
+                border: 1px solid rgba(159,178,255,0.13);
+                color: #eef1ff;
+                backdrop-filter: blur(2px);
+                transition: box-shadow 0.18s;
+            }
+            .contact-side-card:hover {
+                box-shadow: 0 16px 52px rgba(79, 124, 255, 0.22), 0 12px 44px rgba(79, 124, 255, 0.18);
+            }
+            .contact-label {
+                font-size: 1.14rem;
+                font-weight: 800;
+                margin-bottom: 16px;
+                color: var(--accent-2, #9fb2ff);
+                letter-spacing: 0.03em;
+            }
+            .contact-details {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                font-size: 1.12rem;
+                font-weight: 600;
+            }
+            .contact-number {
+                font-size: 1.16rem;
+                color: #4f7cff;
+                letter-spacing: 0.04em;
+                background: rgba(79, 124, 255, 0.07);
+                border-radius: 12px;
+                padding: 5px 12px;
+                margin-bottom: 4px;
+                font-weight: 700;
+            }
+            .contact-name {
+                font-size: 1.08rem;
+                color: #eef1ff;
+                opacity: 0.9;
+            }
+            @media (max-width: 900px) {
+                .contact-side-card {
+                    top: auto;
+                    bottom: 28px;
+                    right: 18px;
+                    transform: none;
+                    min-width: 200px;
+                    padding: 22px 18px 16px 16px;
+                }
+            }
+            @media (max-width: 600px) {
+                .contact-side-card {
+                    position: static;
+                    margin: 28px auto 0 auto;
+                    left: 0;
+                    right: 0;
+                    border-radius: 20px;
+                    padding: 18px 8px;
+                    box-shadow: 0 6px 22px rgba(79, 124, 255, 0.16);
+                }
+            }
+        </style>
+   
+        <style>
+            .fancy-contact-btn {
+                background: linear-gradient(100deg, #4f7cff 0%, #9fb2ff 100%);
+                color: #fff;
+                padding: 16px 42px;
+                border: none;
+                border-radius: 32px;
+                font-size: 1.18rem;
+                font-weight: 600;
+                box-shadow: 0 8px 32px rgba(79, 124, 255, 0.25);
+                cursor: pointer;
+                transition:
+                    background 0.19s cubic-bezier(.7,.3,.3,1.4),
+                    box-shadow 0.22s cubic-bezier(.7,.3,.3,1.4),
+                    transform 0.16s;
+                position: relative;
+                overflow: hidden;
+                z-index: 2;
+            }
+            .fancy-contact-btn:hover, .fancy-contact-btn:focus {
+                background: linear-gradient(120deg, #3b54ce 0%, #4f7cff 80%);
+                box-shadow: 0 12px 44px rgba(79, 124, 255, 0.34);
+                transform: translateY(-2px) scale(1.035);
+                outline: none;
+            }
+
+            .contact-info-popup {
+                display: none;
+                position: absolute;
+                left: 50%;
+                bottom: 100%;
+                transform: translate(-50%, -18px); /* Popup appears above the button */
+                min-width: 250px;
+                background: linear-gradient(120deg, #fff 0%, #f2f6ff 100%);
+                color: #202447;
+                border-radius: 20px;
+                box-shadow: 0 12px 40px rgba(79, 124, 255, 0.18), 0 1px 8px rgba(13,18,31,0.04);
+                padding: 20px 22px 14px 22px;
+                text-align: center;
+                font-size: 1.08rem;
+                font-weight: 500;
+                z-index: 20;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s, pointer-events 0.3s;
+            }
+            .contact-info-popup.active {
+                animation: popup-fade-in 0.54s cubic-bezier(.36,1.3,.52,1.02);
+            }
+            @keyframes popup-fade-in {
+                0% {
+                    opacity: 0;
+                    transform: translate(-50%, 60px) scale(0.94);
+                    filter: blur(8px);
+                }
+                60% {
+                    opacity: 1;
+                    transform: translate(-50%, 24px) scale(1.06);
+                    filter: blur(0.5px);
+                }
+                80% {
+                    transform: translate(-50%, 28px) scale(1.02);
+                    filter: blur(0px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(-50%, 28px) scale(1);
+                    filter: blur(0);
+                }
+            }
+
+            .contact-info-popup .contact-number {
+                font-weight: 800;
+                color: #4f7cff;
+                font-size: 1.22rem;
+                letter-spacing: 0.03em;
+                margin-bottom: 2px;
+                display: block;
+            }
+            .contact-info-popup .contact-name {
+                color: #344178;
+                font-size: 1.01rem;
+            }
+
+            /* Adapt to mobile */
+            @media (max-width: 640px) {
+                .contact-info-popup {
+                    min-width: 180px;
+                    padding: 18px 8vw 13px 8vw;
+                    left: 50%;
+                    font-size: 0.98rem;
+                }
+            }
+        </style>
+     
+      
+       
+    </section>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
