@@ -16,7 +16,7 @@
         border-radius: 1.1em;
         margin: 0 auto;
         box-shadow: 0 4px 24px 0 rgba(180, 205, 245, 0.22), 0 2px 8px rgba(120, 155, 200, 0.08);
-        background: #fcfdff;
+        background: #21376e;
         transition: box-shadow 0.22s;
       }
       @media (max-width: 500px) {
@@ -24,16 +24,6 @@
           max-width: 100%;
           padding: 0.85rem 0.7rem;
         }
-      }
-      .contact-info-popup {
-        font-size: 0.92em;
-        padding: 0.5em 0.7em;
-        border-radius: 0.7em;
-        margin-top: 0.6em;
-        border: 1px solid #bdd1ff;
-        display: inline-block;
-        background: #f5f7fb;
-        color: #21376e;
       }
       .dot {
         background: #466cff;
@@ -67,7 +57,7 @@
                     <div class="portfolio-card-title"></div>
                     <div class="portfolio-card-desc" id="project1desc">Beauty Sphere - истинный путь к красоте. </div>
                     <div class="portfolio-card-links">
-                        <a href="https://tamifront.github.io/beautysphere/" class="portfolio-link-placeholder" target="_blank" id="project1linktext">открыть</a>
+                        <a href="https://tamifront.github.io/beautysphere/" class="portfolio-link-placeholder"  id="project1linktext">открыть</a>
                     </div>
                 </article>
                 <article class="portfolio-card reveal">
@@ -76,7 +66,7 @@
                     <div class="portfolio-card-title"></div>
                     <div class="portfolio-card-desc" id="project2desc">Tooth Clinic - ваша лучшая клиника!</div>
                     <div class="portfolio-card-links">
-                        <a href="https://tamifront.github.io/tooth-clinic/" class="portfolio-link-placeholder" target="_blank" id="project2linktext">открыть</a>
+                        <a href="https://tamifront.github.io/tooth-clinic/" class="portfolio-link-placeholder"  id="project2linktext">открыть</a>
                     </div>
                 </article>
                 <article class="portfolio-card reveal">
@@ -104,19 +94,60 @@
         </section>
 
         <section class="cta-section reveal">
-            <div class="cta-title" id="ctaTitle">Готова сделать сайт, который понравится тебе и твоим клиентам!</div>
-            <div class="cta-text" id="ctaText">Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.</div>
             <div class="contact-block-wrapper" style="display: flex; justify-content: center;">
-                <aside class="contact-side-card">
-                    <div class="contact-label" id="contactLabel">Связаться со мной</div>
-                    <div class="contact-details">
-                        <a class="contact-number" href="https://wa.me/77064216031" target="_blank" rel="noopener" id="waLink">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.15em; vertical-align: middle; margin-right: 0.45em;"><span id="waPhone">+77064216031</span>
-                        </a>
-                        <button class="fancy-contact-btn" onclick="window.open('https://wa.me/77064216031', '_blank')" id="waBtn" style="width:100%;margin-top:0.7em;">
-                            Написать в WhatsApp
-                        </button>
-                    </div>
+                <aside class="contact-side-card" style="
+                    background: linear-gradient(124deg, rgba(79,124,255,0.13) 0%, rgba(23,34,60,0.96) 100%);
+                    border-radius: 18px; 
+                    border: 1px solid rgba(159,178,255,0.18); 
+                    box-shadow: 0 8px 36px rgba(79,124,255,0.11), 0 2px 16px rgba(0,0,0,0.33);
+                    min-width: 260px;
+                    max-width: 385px;
+                    width: 100%;
+                    padding: 24px 22px 20px 22px;
+                    margin: 0 12px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+                    ">
+                    <div class="contact-label" id="contactLabel" style="
+                        font-size: 1.18rem;
+                        font-weight: 700;
+                        letter-spacing: 0.09em;
+                        color: #aebdff;
+                        margin-bottom: 7px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        ">Связаться со мной</div>
+                    <button class="fancy-contact-btn" 
+                        onclick="window.open('https://wa.me/77064216031', '_blank')" 
+                        id="waBtn" 
+                        style="
+                            width: 100%;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 10px 0;
+                            background: linear-gradient(124deg,#5b82ff,#9fb2ff);
+                            color: #081028;
+                            font-weight: 700;
+                            font-size: 1.01rem;
+                            border: none;
+                            border-radius: 999px;
+                            box-shadow: 0 2px 20px rgba(79,124,255,0.21);
+                            cursor: pointer;
+                            margin-top: 0.7em;
+                            transition:
+                              background 0.17s,
+                              color 0.16s,
+                              transform 0.16s;
+                        " 
+                        onmouseover="this.style.background='linear-gradient(90deg, #b6c5ff 0%, #5b82ff 100%)';this.style.color='#07132a';this.style.transform='translateY(-2px) scale(1.03)';" 
+                        onmouseout="this.style.background='linear-gradient(124deg,#5b82ff,#9fb2ff)';this.style.color='#081028';this.style.transform='none';"
+                    >
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.13em; margin-right: 0.5em;">
+                        <span>Написать в WhatsApp</span>
+                    </button>
                 </aside>
             </div>
         </section>
