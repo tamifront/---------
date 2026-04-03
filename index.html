@@ -6,7 +6,32 @@
     <title>Моё Портфолио</title>
     <link rel="stylesheet" href="style.css">
     <style>
-      
+      /* Поверхностная настройка для светлой/тёмной темы (дополнительная, если нужно) */
+      body.light-theme {
+        background: var(--main-bg) !important;
+        color: var(--main-text) !important;
+      }
+      body.light-theme .hero,
+      body.light-theme .page-shell,
+      body.light-theme .portfolio-section,
+      body.light-theme .about-section,
+      body.light-theme .cta-section {
+        background: var(--section-bg) !important;
+        color: var(--main-text) !important;
+      }
+      body.light-theme .portfolio-card {
+        background: #fff !important;
+        color: #151d31 !important;
+        border-color: #e4e9fb !important;
+      }
+      body.light-theme .portfolio-tag {
+        color: #4f7cff !important;
+      }
+      body.light-theme .contact-side-card {
+        background: linear-gradient(120deg, #e8ecfd 65%, #bdd1ff 100%) !important;
+        color: #293366 !important;
+        border: 1px solid #bdd1ff !important;
+      }
     </style>
 </head>
 <body>
@@ -18,54 +43,54 @@
     <div class="page-shell">
         <header class="hero">
             <div class="hero-eyebrow"> Portfolio</div>
-            <div class="title">Frontend Developer.</div>
-            <div class="subtitle">Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.</div>
+            <div class="title" id="mainTitle">Frontend Developer.</div>
+            <div class="subtitle" id="mainSubtitle">Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.</div>
             <div class="hero-actions">
-                <a class="btn btn-ghost" href="#projects">Посмотреть работы</a>
+                <a class="btn btn-ghost" href="#projects" id="worksBtn">Посмотреть работы</a>
             </div>
             <div class="hero-line" aria-hidden="true"></div>
         </header>
 
         <section class="portfolio-section" id="projects">
-            <div class="portfolio-title"><span class="dot" aria-hidden="true" style="background:var(--dot-color); width:0.88em; height:0.88em; border-radius:99em; display:inline-block; margin-right:0.35em;"></span>Мои Работы</div>
-            <div class="portfolio-subtitle">Все эти работы служат примером моих навыков.</div>
+            <div class="portfolio-title"><span class="dot" aria-hidden="true" style="background:var(--dot-color); width:0.88em; height:0.88em; border-radius:99em; display:inline-block; margin-right:0.35em;"></span><span id="worksTitle">Мои Работы</span></div>
+            <div class="portfolio-subtitle" id="worksSubtitle">Все эти работы служат примером моих навыков.</div>
             <div class="portfolio-cards">
                 <article class="portfolio-card reveal">
                     <div class="portfolio-tag">project 1</div>
                     <img class="portfolio-img" src="./img/Снимок экрана (91).png" alt="Project 1 image placeholder">
                     <div class="portfolio-card-title"></div>
-                    <div class="portfolio-card-desc">Beauty Sphere - истинный путь к красоте. </div>
+                    <div class="portfolio-card-desc" id="project1desc">Beauty Sphere - истинный путь к красоте. </div>
                     <div class="portfolio-card-links">
-                        <a href="https://tamifront.github.io/beautysphere/" class="portfolio-link-placeholder" target="_blank">открыть</a>
+                        <a href="https://tamifront.github.io/beautysphere/" class="portfolio-link-placeholder" target="_blank" id="project1linktext">открыть</a>
                     </div>
                 </article>
                 <article class="portfolio-card reveal">
                     <div class="portfolio-tag">project 2</div>
                     <img class="portfolio-img" src="./img/Снимок экрана (92).png" alt="Project 2 image placeholder">
                     <div class="portfolio-card-title"></div>
-                    <div class="portfolio-card-desc">Tooth Clinic - ваша лучшая клиника!</div>
+                    <div class="portfolio-card-desc" id="project2desc">Tooth Clinic - ваша лучшая клиника!</div>
                     <div class="portfolio-card-links">
-                        <a href="https://tamifront.github.io/tooth-clinic/" class="portfolio-link-placeholder" target="_blank">открыть</a>
+                        <a href="https://tamifront.github.io/tooth-clinic/" class="portfolio-link-placeholder" target="_blank" id="project2linktext">открыть</a>
                     </div>
                 </article>
                 <article class="portfolio-card reveal">
                     <div class="portfolio-tag">project 3</div>
                     <img class="portfolio-img" src="./img/Снимок экрана (93).png" alt="Project 3 image placeholder">
                     <div class="portfolio-card-title"></div>
-                    <div class="portfolio-card-desc">Школа программирования - отличный выбор!</div>
+                    <div class="portfolio-card-desc" id="project3desc">Школа программирования - отличный выбор!</div>
                     <div class="portfolio-card-links">
-                        <a href="https://tamifront.github.io/-CodersCamp/" class="portfolio-link-placeholder" >открыть</a>
+                        <a href="https://tamifront.github.io/-CodersCamp/" class="portfolio-link-placeholder" id="project3linktext">открыть</a>
                     </div>
                 </article>
             </div>
         </section>
 
         <section class="about-section">
-            <div class="about-title"><span class="dot" aria-hidden="true" style="background:var(--dot-color); width:0.88em; height:0.88em; border-radius:99em; display:inline-block; margin-right:0.35em;"></span>Почему стоит выбрать меня</div>
+            <div class="about-title"><span class="dot" aria-hidden="true" style="background:var(--dot-color); width:0.88em; height:0.88em; border-radius:99em; display:inline-block; margin-right:0.35em;"></span><span id="aboutWhyTitle">Почему стоит выбрать меня</span></div>
             <div class="about-inner reveal">
-                <div class="about-text">
+                <div class="about-text" id="aboutText">
                     Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
-                    <span class="highlight">Скорость - моя фишка</span>
+                    <span class="highlight" id="speedHighlight">Скорость - моя фишка</span>
                     <br><br>
                     Держу баланс между визуальной силой, удобством и скоростью загрузки.
                 </div>
@@ -73,23 +98,23 @@
         </section>
 
         <section class="cta-section reveal">
-            <div class="cta-title">Готова сделать сайт, который понравится тебе и твоим клиентам!</div>
-            <div class="cta-text">Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.</div>
+            <div class="cta-title" id="ctaTitle">Готова сделать сайт, который понравится тебе и твоим клиентам!</div>
+            <div class="cta-text" id="ctaText">Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.</div>
             <div class="contact-block-wrapper">
                 <aside class="contact-side-card">
-                    <div class="contact-label">Связаться со мной</div>
+                    <div class="contact-label" id="contactLabel">Связаться со мной</div>
                     <div class="contact-details">
-                        <a class="contact-number" href="https://wa.me/77064216031" target="_blank" rel="noopener">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.33em; vertical-align: middle; margin-right: 0.45em;">+77064216031
+                        <a class="contact-number" href="https://wa.me/77064216031" target="_blank" rel="noopener" id="waLink">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.33em; vertical-align: middle; margin-right: 0.45em;"><span id="waPhone">+77064216031</span>
                         </a>
-                        <button class="fancy-contact-btn" onclick="window.open('https://wa.me/77064216031', '_blank')">
+                        <button class="fancy-contact-btn" onclick="window.open('https://wa.me/77064216031', '_blank')" id="waBtn">
                             Написать в WhatsApp
                         </button>
                     </div>
                     <!-- Контактная карточка всплывашка -->
                     <div id="contactInfo" class="contact-info-popup">
-                        <span class="contact-number">+77064216031</span>
-                        <span class="contact-name">имя: Тамила</span>
+                        <span class="contact-number" id="contactCardPhone">+77064216031</span>
+                        <span class="contact-name" id="contactCardName">имя: Тамила</span>
                     </div>
                 </aside>
             </div>
@@ -98,25 +123,126 @@
 
     <script src="index.js"></script>
     <script>
+        // ТЕКСТЫ ДЛЯ ТЕМ (дополнительно на весь сайт)
+        const texts = {
+            dark: {
+                themeIcon: "☀️",
+                themeText: "Светлая тема",
+                mainTitle: "Frontend Developer.",
+                mainSubtitle: "Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.",
+                worksBtn: "Посмотреть работы",
+                worksTitle: "Мои Работы",
+                worksSubtitle: "Все эти работы служат примером моих навыков.",
+                project1desc: "Beauty Sphere - истинный путь к красоте. ",
+                project1linktext: "открыть",
+                project2desc: "Tooth Clinic - ваша лучшая клиника!",
+                project2linktext: "открыть",
+                project3desc: "Школа программирования - отличный выбор!",
+                project3linktext: "открыть",
+                aboutWhyTitle: "Почему стоит выбрать меня",
+                aboutText: `Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
+                    <span class="highlight" id="speedHighlight">Скорость - моя фишка</span>
+                    <br><br>
+                    Держу баланс между визуальной силой, удобством и скоростью загрузки.`,
+                ctaTitle: "Готова сделать сайт, который понравится тебе и твоим клиентам!",
+                ctaText: "Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.",
+                contactLabel: "Связаться со мной",
+                waPhone: "+77064216031",
+                waBtn: "Написать в WhatsApp",
+                contactCardPhone: "+77064216031",
+                contactCardName: "имя: Тамила"
+            },
+            light: {
+                themeIcon: "🌙",
+                themeText: "Тёмная тема",
+                mainTitle: "Frontend Developer.",
+                mainSubtitle: "Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.",
+                worksBtn: "Посмотреть работы",
+                worksTitle: "Мои Работы",
+                worksSubtitle: "Все эти работы служат примером моих навыков.",
+                project1desc: "Beauty Sphere - истинный путь к красоте. ",
+                project1linktext: "открыть",
+                project2desc: "Tooth Clinic - ваша лучшая клиника!",
+                project2linktext: "открыть",
+                project3desc: "Школа программирования - отличный выбор!",
+                project3linktext: "открыть",
+                aboutWhyTitle: "Почему стоит выбрать меня",
+                aboutText: `Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
+                    <span class="highlight" id="speedHighlight">Скорость - моя фишка</span>
+                    <br><br>
+                    Держу баланс между визуальной силой, удобством и скоростью загрузки.`,
+                ctaTitle: "Готова сделать сайт, который понравится тебе и твоим клиентам!",
+                ctaText: "Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.",
+                contactLabel: "Связаться со мной",
+                waPhone: "+77064216031",
+                waBtn: "Написать в WhatsApp",
+                contactCardPhone: "+77064216031",
+                contactCardName: "имя: Тамила"
+            }
+        };
+
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
-        // Установка темы
+
+        // IDs для элементов с изменяемым текстом
+        const ids = [
+          "mainTitle",
+          "mainSubtitle",
+          "worksBtn",
+          "worksTitle",
+          "worksSubtitle",
+          "project1desc",
+          "project1linktext",
+          "project2desc",
+          "project2linktext",
+          "project3desc",
+          "project3linktext",
+          "aboutWhyTitle",
+          "aboutText",
+          "ctaTitle",
+          "ctaText",
+          "contactLabel",
+          "waPhone",
+          "waBtn",
+          "contactCardPhone",
+          "contactCardName"
+        ];
+
+        // Установка темы и подмен текстов на всём сайте
         function setTheme(dark) {
             if (dark) {
+                document.body.classList.remove('light-theme');
                 document.body.classList.add('dark-theme');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Светлая тема';
                 localStorage.setItem('portfolioTheme', 'dark');
+                applyTexts(texts.dark);
             } else {
                 document.body.classList.remove('dark-theme');
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Тёмная тема';
+                document.body.classList.add('light-theme');
                 localStorage.setItem('portfolioTheme', 'light');
+                applyTexts(texts.light);
             }
         }
 
-        // При загрузке: проверить сохраненную тему или системную
+        // Подстановка текстов
+        function applyTexts(dict) {
+            themeIcon.textContent = dict.themeIcon;
+            themeText.textContent = dict.themeText;
+
+            ids.forEach(function(id) {
+                const el = document.getElementById(id);
+                if (el) {
+                    // Для aboutText поддерживаем вложенную разметку, используем innerHTML
+                    if (id === "aboutText") {
+                        el.innerHTML = dict[id];
+                    } else {
+                        el.textContent = dict[id];
+                    }
+                }
+            });
+        }
+
+        // На старте — проверить сохранённую и системную тему
         (function() {
             const saved = localStorage.getItem('portfolioTheme');
             if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
