@@ -5,8 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Моё Портфолио</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dark Theme Styles */
+        body.dark-theme {
+            background: #151a2a;
+            color: #f2f3fa;
+        }
+        .dark-theme .hero,
+        .dark-theme .page-shell,
+        .dark-theme .portfolio-section,
+        .dark-theme .about-section,
+        .dark-theme .cta-section {
+            background: none;
+            color: #f2f3fa;
+        }
+        .dark-theme .portfolio-card {
+            background: #1a2140 !important;
+            color: #e7eaff;
+            border-color: #313b60;
+        }
+        .dark-theme .contact-side-card {
+            background: linear-gradient(120deg, #1e2545 65%, #334087 100%) !important;
+            color: #e7eaff;
+            border: 1px solid #314499;
+        }
+        .dark-theme .contact-label {
+            color: #d2deff !important;
+        }
+        .dark-theme .contact-number {
+            background: rgba(114,148,255,0.14) !important;
+            color: #aecdff !important;
+        }
+        .dark-theme .contact-name {
+            color: #a4a7c9 !important;
+        }
+        .dark-theme .fancy-contact-btn {
+            background: linear-gradient(100deg, #314499 0%, #718cf5 100%) !important;
+            color: #fff !important;
+        }
+        .dark-theme .fancy-contact-btn:hover, 
+        .dark-theme .fancy-contact-btn:focus {
+            background: linear-gradient(120deg, #1a2044 0%, #314499 80%) !important;
+        }
+        .dark-theme .contact-info-popup {
+            background: linear-gradient(120deg, #222746 0%, #37405c 100%) !important;
+            color: #d2deff !important;
+            border-color: #3f4f92;
+        }
+        /* Toggle theme button styling */
+        .theme-toggle-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: linear-gradient(100deg, #f7f7ff 0%, #c7d2ff 100%);
+            color: #222447;
+            border: none;
+            border-radius: 24px;
+            padding: 10px 24px 10px 18px;
+            font-size: 1.07rem;
+            font-weight: 700;
+            box-shadow: 0 4px 24px rgba(79,124,255,0.10);
+            cursor: pointer;
+            transition:
+                background 0.19s,
+                color 0.17s,
+                box-shadow 0.18s,
+                transform 0.13s;
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+        .theme-toggle-btn:hover, .theme-toggle-btn:focus {
+            background: linear-gradient(110deg, #afc2ff 0%, #e4e9f9 98%);
+            color: #3b4378;
+            transform: scale(1.025);
+            outline: none;
+        }
+        .theme-toggle-btn .icon {
+            font-size: 1.28em;
+            vertical-align:middle;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+            .theme-toggle-btn {
+                top: 12px;
+                right: 10px;
+                padding: 8px 15px 8px 12px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 <body>
+<!-- Theme toggle button (fixed to top-right) -->
+<button id="themeToggle" class="theme-toggle-btn" aria-label="Переключить тему">
+    <span class="icon" id="themeIcon">🌙</span>
+    <span id="themeText">Тёмная тема</span>
+</button>
 <div class="page-shell">
     <header class="hero">
         <div class="hero-eyebrow"> Portfolio</div>
@@ -70,59 +167,32 @@
     <section class="cta-section reveal">
         <div class="cta-title">Готова сделать сайт, который понравится тебе и твоим клиентам!</div>
         <div class="cta-text">Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.</div>
-        <div 
-            id="contactInfo" 
-            class="contact-info-popup"
-            style="
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 32px;
-                z-index: 50;
-                min-width: 210px;
-                max-width: 92vw;
-                box-sizing: border-box;
-                pointer-events: none;
-            "
-        >
+        
+        <!-- Блок контактов теперь внутри секции, без position: fixed -->
+        <div class="contact-block-wrapper">
+            <aside class="contact-side-card">
+                <div class="contact-label">Связаться со мной</div>
+                <div class="contact-details">
+                    <a class="contact-number" href="https://wa.me/77064216031" target="_blank" rel="noopener">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.2em; vertical-align: middle; margin-right: 0.32em;">+77064216031
+                    </a>
+                </div>
+            </aside>
+        </div>
+        <div id="contactInfo" class="contact-info-popup">
             <span class="contact-number">+77064216031</span><br>
             <span class="contact-name">имя: Тамила</span>
         </div>
         <style>
-            /* Responsive position fix for contact-info-popup */
-            @media (max-width: 900px) {
-                #contactInfo.contact-info-popup {
-                    bottom: 22px;
-                    min-width: 170px;
-                    font-size: 1em;
-                }
+            .contact-block-wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 38px;
+                margin-bottom: 0;
             }
-            @media (max-width: 640px) {
-                #contactInfo.contact-info-popup {
-                    position: static !important;
-                    left: unset !important;
-                    transform: unset !important;
-                    margin: 26px auto 0 auto;
-                    display: block;
-                    max-width: 98vw;
-                }
-            }
-        </style>
-        <aside class="contact-side-card">
-            <div class="contact-label">Связаться со мной</div>
-            <div class="contact-details">
-                <a class="contact-number" href="https://wa.me/77064216031" target="_blank" rel="noopener">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="height: 1.2em; vertical-align: middle; margin-right: 0.32em;">+77064216031
-                </a>
-                <!-- netlify-test-form-section and related styles have been removed as requested -->
-            </div>
-        </aside>
-        <style>
             .contact-side-card {
-                position: fixed;
-                right: 42px;
-                top: 50%;
-                transform: translateY(-50%);
+                position: static !important;
                 background: linear-gradient(120deg, #101833 65%, #233378 100%);
                 border-radius: 28px;
                 box-shadow: 0 12px 44px rgba(79, 124, 255, 0.17), 0 2px 8px rgba(0,0,0,.18);
@@ -131,11 +201,14 @@
                 flex-direction: column;
                 align-items: flex-start;
                 min-width: 275px;
-                z-index: 10;
+                z-index: 1;
                 border: 1px solid rgba(159,178,255,0.13);
                 color: #eef1ff;
                 backdrop-filter: blur(2px);
                 transition: box-shadow 0.18s;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 0;
             }
             .contact-side-card:hover {
                 box-shadow: 0 16px 52px rgba(79, 124, 255, 0.22), 0 12px 44px rgba(79, 124, 255, 0.18);
@@ -171,27 +244,22 @@
             }
             @media (max-width: 900px) {
                 .contact-side-card {
-                    top: auto;
-                    bottom: 28px;
-                    right: 18px;
-                    transform: none;
                     min-width: 200px;
                     padding: 22px 18px 16px 16px;
                 }
             }
             @media (max-width: 600px) {
+                .contact-block-wrapper {
+                    margin-top: 18px;
+                }
                 .contact-side-card {
-                    position: static;
-                    margin: 28px auto 0 auto;
-                    left: 0;
-                    right: 0;
                     border-radius: 20px;
                     padding: 18px 8px;
                     box-shadow: 0 6px 22px rgba(79, 124, 255, 0.16);
                 }
             }
         </style>
-   
+
         <style>
             .fancy-contact-btn {
                 background: linear-gradient(100deg, #4f7cff 0%, #9fb2ff 100%);
@@ -223,7 +291,7 @@
                 position: absolute;
                 left: 50%;
                 bottom: 100%;
-                transform: translate(-50%, -18px); /* Popup appears above the button */
+                transform: translate(-50%, -18px);
                 min-width: 250px;
                 background: linear-gradient(120deg, #fff 0%, #f2f6ff 100%);
                 color: #202447;
@@ -275,7 +343,6 @@
                 color: #344178;
                 font-size: 1.01rem;
             }
-
             /* Adapt to mobile */
             @media (max-width: 640px) {
                 .contact-info-popup {
