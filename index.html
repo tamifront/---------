@@ -70,10 +70,44 @@
     <section class="cta-section reveal">
         <div class="cta-title">Готова сделать сайт, который понравится тебе и твоим клиентам!</div>
         <div class="cta-text">Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.</div>
-        <div id="contactInfo" class="contact-info-popup">
+        <div 
+            id="contactInfo" 
+            class="contact-info-popup"
+            style="
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 32px;
+                z-index: 50;
+                min-width: 210px;
+                max-width: 92vw;
+                box-sizing: border-box;
+                pointer-events: none;
+            "
+        >
             <span class="contact-number">+77064216031</span><br>
             <span class="contact-name">имя: Тамила</span>
         </div>
+        <style>
+            /* Responsive position fix for contact-info-popup */
+            @media (max-width: 900px) {
+                #contactInfo.contact-info-popup {
+                    bottom: 22px;
+                    min-width: 170px;
+                    font-size: 1em;
+                }
+            }
+            @media (max-width: 640px) {
+                #contactInfo.contact-info-popup {
+                    position: static !important;
+                    left: unset !important;
+                    transform: unset !important;
+                    margin: 26px auto 0 auto;
+                    display: block;
+                    max-width: 98vw;
+                }
+            }
+        </style>
         <aside class="contact-side-card">
             <div class="contact-label">Связаться со мной</div>
             <div class="contact-details">
