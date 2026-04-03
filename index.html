@@ -6,126 +6,6 @@
     <title>Моё Портфолио</title>
     <link rel="stylesheet" href="style.css">
     <style>
-      :root {
-        --light-bg: #f7faff;
-        --light-text: #21376e; /* более темно-синий */
-        --light-section: linear-gradient(120deg, #eff5ff 0%, #e1eeff 80%, #fbfbff 100%);
-        --light-section-card: #fcfdff;
-        --light-border: #d0d8ed;
-        --light-highlight: #4367dc;
-        --light-dot: #466cff;
-        --light-shadow: 0 4px 24px 0 rgba(180, 205, 245, 0.22), 0 2px 8px rgba(120, 155, 200, 0.08); 
-        --dark-bg: #131524;
-        --dark-text: #fff;
-        --dark-section: #171a2f;
-        --dark-section-card: #232445;
-        --dark-border: #212448;
-        --dark-highlight: #63a9ff;
-        --dark-dot: #7aaaff;
-        --dot-color: var(--light-dot);
-      }
-
-      /* Убираем выделения фонов у текста (user-select и background) */
-      body, body * {
-        user-select: text;
-        background-image: none !important;
-      }
-
-      body.light-theme {
-        background: var(--light-bg) !important;
-        color: var(--light-text) !important;
-        border-color: var(--light-border) !important;
-        transition: background 0.2s, color 0.2s;
-      }
-      /* Убираем эффект выделения как в input/focus для текста */
-      body.light-theme ::selection {
-        background: #e6eefe;
-        color: var(--light-text);
-      }
-      /* Сбрасываем выделения для отдельных элементов */
-      body.light-theme *,
-      body.light-theme *:not(input):not(textarea):not(button){
-        background-image: none !important;
-        background: transparent;
-        box-shadow: none;
-        color: var(--light-text) !important;
-        border-color: var(--light-border) !important;
-      }
-
-      body.light-theme .page-shell {
-        background: var(--light-section) !important;
-        color: var(--light-text) !important;
-      }
-      body.light-theme .hero,
-      body.light-theme .portfolio-section,
-      body.light-theme .about-section,
-      body.light-theme .cta-section {
-        background: var(--light-section) !important;
-        color: var(--light-text) !important;
-        background-image: var(--light-section);
-      }
-      body.light-theme .portfolio-card {
-        background: var(--light-section-card) !important;
-        color: var(--light-text) !important;
-        border: 1px solid var(--light-border) !important;
-        box-shadow: var(--light-shadow) !important;
-        transition: box-shadow 0.22s;
-      }
-      body.light-theme .portfolio-card:hover {
-        box-shadow: 0 8px 36px 0 rgba(180, 205, 245, 0.33), 0 2px 8px rgba(120, 155, 200, 0.10);
-      }
-      body.light-theme .portfolio-tag {
-        color: var(--light-highlight) !important;
-      }
-      body.light-theme .contact-side-card {
-        background: linear-gradient(120deg, #e8ecfd 65%, #dde8ff 100%) !important;
-        color: var(--light-text) !important;
-        border: 1px solid #bdd1ff !important;
-        box-shadow: 0 4px 24px 0 rgba(200, 217, 250, 0.16), 0 2px 8px rgba(155, 175, 215, 0.07);
-      }
-      body.light-theme .contact-info-popup {
-        background: #f5f7fb !important;
-        color: var(--light-text) !important;
-        border-color: #bdd1ff !important;
-      }
-
-      /* Темная тема не меняем */
-      body.dark-theme,
-      body.dark-theme * {
-        background: var(--dark-bg) !important;
-        color: var(--dark-text) !important;
-        border-color: var(--dark-border) !important;
-        transition: background 0.2s, color 0.2s;
-      }
-      body.dark-theme .hero,
-      body.dark-theme .page-shell,
-      body.dark-theme .portfolio-section,
-      body.dark-theme .about-section,
-      body.dark-theme .cta-section {
-        background: var(--dark-section) !important;
-        color: var(--dark-text) !important;
-      }
-      body.dark-theme .portfolio-card {
-        background: var(--dark-section-card) !important;
-        color: var(--dark-text) !important;
-        border: 1px solid var(--dark-border) !important;
-        box-shadow: 0 2px 12px rgba(76, 115, 242, 0.11);
-      }
-      body.dark-theme .portfolio-tag {
-        color: var(--dark-highlight) !important;
-      }
-      body.dark-theme .contact-side-card {
-        background: linear-gradient(120deg, #232445 65%, #14162e 100%) !important;
-        color: var(--dark-text) !important;
-        border: 1px solid #3044a4 !important;
-      }
-      body.dark-theme .contact-info-popup {
-        background: #212448 !important;
-        color: var(--dark-text) !important;
-        border-color: #3044a4 !important;
-      }
-
-      /* Уменьшенная контактная карточка */
       .contact-side-card {
         box-sizing: border-box;
         max-width: 290px;
@@ -135,8 +15,8 @@
         font-size: 0.95em;
         border-radius: 1.1em;
         margin: 0 auto;
-        box-shadow: var(--light-shadow); /* светлая тень по дефолту */
-        background: var(--light-section-card);
+        box-shadow: 0 4px 24px 0 rgba(180, 205, 245, 0.22), 0 2px 8px rgba(120, 155, 200, 0.08);
+        background: #fcfdff;
         transition: box-shadow 0.22s;
       }
       @media (max-width: 500px) {
@@ -150,17 +30,22 @@
         padding: 0.5em 0.7em;
         border-radius: 0.7em;
         margin-top: 0.6em;
-        border: 1px solid;
+        border: 1px solid #bdd1ff;
         display: inline-block;
+        background: #f5f7fb;
+        color: #21376e;
+      }
+      .dot {
+        background: #466cff;
+        width: 0.88em;
+        height: 0.88em;
+        border-radius: 99em;
+        display: inline-block;
+        margin-right: 0.35em;
       }
     </style>
 </head>
 <body>
-    <!-- Theme toggle button (fixed to top-right) -->
-    <button id="themeToggle" class="theme-toggle-btn" aria-label="Переключить тему">
-        <span class="icon" id="themeIcon">🌙</span>
-        <span id="themeText">Тёмная тема</span>
-    </button>
     <div class="page-shell">
         <header class="hero">
             <div class="hero-eyebrow"> Portfolio</div>
@@ -173,7 +58,7 @@
         </header>
 
         <section class="portfolio-section" id="projects">
-            <div class="portfolio-title"><span class="dot" aria-hidden="true" style="background:var(--dot-color); width:0.88em; height:0.88em; border-radius:99em; display:inline-block; margin-right:0.35em;"></span><span id="worksTitle">Мои Работы</span></div>
+            <div class="portfolio-title"><span class="dot" aria-hidden="true"></span><span id="worksTitle">Мои Работы</span></div>
             <div class="portfolio-subtitle" id="worksSubtitle">Все эти работы служат примером моих навыков.</div>
             <div class="portfolio-cards">
                 <article class="portfolio-card reveal">
@@ -207,7 +92,7 @@
         </section>
 
         <section class="about-section">
-            <div class="about-title"><span class="dot" aria-hidden="true" style="background:#466cff; width:0.88em; height:0.88em; border-radius:99em; display:inline-block; margin-right:0.35em;"></span><span id="aboutWhyTitle">Почему стоит выбрать меня</span></div>
+            <div class="about-title"><span class="dot" aria-hidden="true"></span><span id="aboutWhyTitle">Почему стоит выбрать меня</span></div>
             <div class="about-inner reveal">
                 <div class="about-text" id="aboutText">
                     Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
@@ -232,217 +117,11 @@
                             Написать в WhatsApp
                         </button>
                     </div>
-                    <!-- Контактная карточка всплывашка -->
-                  
                 </aside>
             </div>
         </section>
     </div>
 
     <script src="index.js"></script>
-    <script>
-        const texts = {
-            dark: {
-                themeIcon: "☀️",
-                themeText: "Светлая тема",
-                mainTitle: "Frontend Developer.",
-                mainSubtitle: "Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.",
-                worksBtn: "Посмотреть работы",
-                worksTitle: "Мои Работы",
-                worksSubtitle: "Все эти работы служат примером моих навыков.",
-                project1desc: "Beauty Sphere - истинный путь к красоте. ",
-                project1linktext: "открыть",
-                project2desc: "Tooth Clinic - ваша лучшая клиника!",
-                project2linktext: "открыть",
-                project3desc: "Школа программирования - отличный выбор!",
-                project3linktext: "открыть",
-                aboutWhyTitle: "Почему стоит выбрать меня",
-                aboutText: `Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
-                    <span class="highlight" id="speedHighlight">Скорость - моя фишка</span>
-                    <br><br>
-                    Держу баланс между визуальной силой, удобством и скоростью загрузки.`,
-                ctaTitle: "Готова сделать сайт, который понравится тебе и твоим клиентам!",
-                ctaText: "Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.",
-                contactLabel: "Связаться со мной",
-                waPhone: "+77064216031",
-                waBtn: "Написать в WhatsApp",
-                contactCardPhone: "+77064216031",
-                contactCardName: "имя: Тамила"
-            },
-            light: {
-                themeIcon: "🌙",
-                themeText: "Тёмная тема",
-                mainTitle: "Frontend Developer.",
-                mainSubtitle: "Я начинающий фронтенд-разработчик, создаю современные и адаптивные сайты.",
-                worksBtn: "Посмотреть работы",
-                worksTitle: "Мои Работы",
-                worksSubtitle: "Все эти работы служат примером моих навыков.",
-                project1desc: "Beauty Sphere - истинный путь к красоте. ",
-                project1linktext: "открыть",
-                project2desc: "Tooth Clinic - ваша лучшая клиника!",
-                project2linktext: "открыть",
-                project3desc: "Школа программирования - отличный выбор!",
-                project3linktext: "открыть",
-                aboutWhyTitle: "Почему стоит выбрать меня",
-                aboutText: `Пока другие неделю рисуют макет, я с помощью нейросетей за пару дней предлагаю готовые концепты. Вы запускаете свое портфолио и начинаете привлекать клиентов уже на этой неделе.
-                    <span class="highlight" id="speedHighlight">Скорость - моя фишка</span>
-                    <br><br>
-                    Держу баланс между визуальной силой, удобством и скоростью загрузки.`,
-                ctaTitle: "Готова сделать сайт, который понравится тебе и твоим клиентам!",
-                ctaText: "Если хочешь стильный сайт + быстрый срок, напиши мне и я предложу концепцию под твой проект.",
-                contactLabel: "Связаться со мной",
-                waPhone: "+77064216031",
-                waBtn: "Написать в WhatsApp",
-                contactCardPhone: "+77064216031",
-                contactCardName: "имя: Тамила"
-            }
-        };
-
-        const themeToggleBtn = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-        const ids = [
-          "mainTitle",
-          "mainSubtitle",
-          "worksBtn",
-          "worksTitle",
-          "worksSubtitle",
-          "project1desc",
-          "project1linktext",
-          "project2desc",
-          "project2linktext",
-          "project3desc",
-          "project3linktext",
-          "aboutWhyTitle",
-          "aboutText",
-          "ctaTitle",
-          "ctaText",
-          "contactLabel",
-          "waPhone",
-          "waBtn",
-          "contactCardPhone",
-          "contactCardName"
-        ];
-
-        // Настройка градиента и текста при смене темы
-        function applyThemeStyles(dark) {
-            const allElements = document.querySelectorAll('body, body *');
-            if (dark) {
-                allElements.forEach(el => {
-                    if (el.tagName === "IMG" || el.classList.contains("icon")) return;
-                    el.style.background = "var(--dark-bg)";
-                    el.style.color = "var(--dark-text)";
-                    el.style.borderColor = "var(--dark-border)";
-                });
-                setTimeout(() => {
-                    document.querySelectorAll('.hero,.page-shell,.portfolio-section,.about-section,.cta-section').forEach(e => {
-                        e.style.background = 'var(--dark-section)';
-                        e.style.color = 'var(--dark-text)';
-                        e.style.backgroundImage = '';
-                    });
-                    document.querySelectorAll('.portfolio-card').forEach(e => {
-                        e.style.background = 'var(--dark-section-card)';
-                        e.style.color = 'var(--dark-text)';
-                        e.style.borderColor = 'var(--dark-border)';
-                        e.style.boxShadow = "0 2px 12px rgba(76, 115, 242, 0.11)";
-                    });
-                    document.querySelectorAll('.portfolio-tag').forEach(e => e.style.color = 'var(--dark-highlight)');
-                    document.querySelectorAll('.contact-side-card').forEach(e => {
-                        e.style.background = 'linear-gradient(120deg, #232445 65%, #14162e 100%)';
-                        e.style.color = 'var(--dark-text)';
-                        e.style.borderColor = '#3044a4';
-                        e.style.boxShadow = '';
-                    });
-                    document.querySelectorAll('.contact-info-popup').forEach(e => {
-                      e.style.background = '#212448';
-                      e.style.color = 'var(--dark-text)';
-                      e.style.borderColor = '#3044a4';
-                    });
-                }, 10);
-            } else {
-                allElements.forEach(el => {
-                    if (el.tagName === "IMG" || el.classList.contains("icon")) return;
-                    el.style.background = "var(--light-bg)";
-                    el.style.color = "var(--light-text)";
-                    el.style.borderColor = "var(--light-border)";
-                    el.style.backgroundImage = "none";
-                });
-                setTimeout(() => {
-                    document.querySelectorAll('.page-shell').forEach(e => {
-                        e.style.background = '';
-                        e.style.backgroundImage = 'var(--light-section)';
-                    });
-                    document.querySelectorAll('.hero,.portfolio-section,.about-section,.cta-section').forEach(e => {
-                        e.style.background = '';
-                        e.style.backgroundImage = 'var(--light-section)';
-                        e.style.color = 'var(--light-text)';
-                    });
-                    document.querySelectorAll('.portfolio-card').forEach(e => {
-                        e.style.background = 'var(--light-section-card)';
-                        e.style.color = 'var(--light-text)';
-                        e.style.borderColor = 'var(--light-border)';
-                        e.style.boxShadow = "0 4px 24px 0 rgba(180, 205, 245, 0.22), 0 2px 8px rgba(120, 155, 200, 0.08)";
-                    });
-                    document.querySelectorAll('.portfolio-tag').forEach(e => e.style.color = 'var(--light-highlight)');
-                    document.querySelectorAll('.contact-side-card').forEach(e => {
-                        e.style.background = 'linear-gradient(120deg, #e8ecfd 65%, #dde8ff 100%)';
-                        e.style.color = 'var(--light-text)';
-                        e.style.borderColor = '#bdd1ff';
-                        e.style.boxShadow = "0 4px 24px 0 rgba(200, 217, 250, 0.16), 0 2px 8px rgba(155, 175, 215, 0.07)";
-                    });
-                    document.querySelectorAll('.contact-info-popup').forEach(e => {
-                        e.style.background = '#f5f7fb';
-                        e.style.color = 'var(--light-text)';
-                        e.style.borderColor = '#bdd1ff';
-                    });
-                }, 10);
-            }
-        }
-
-        function setTheme(dark) {
-            if (dark) {
-                document.body.classList.remove('light-theme');
-                document.body.classList.add('dark-theme');
-                localStorage.setItem('portfolioTheme', 'dark');
-                applyTexts(texts.dark);
-                applyThemeStyles(true);
-            } else {
-                document.body.classList.remove('dark-theme');
-                document.body.classList.add('light-theme');
-                localStorage.setItem('portfolioTheme', 'light');
-                applyTexts(texts.light);
-                applyThemeStyles(false);
-            }
-        }
-
-        function applyTexts(dict) {
-            themeIcon.textContent = dict.themeIcon;
-            themeText.textContent = dict.themeText;
-
-            ids.forEach(function(id) {
-                const el = document.getElementById(id);
-                if (el) {
-                    if (id === "aboutText") {
-                        el.innerHTML = dict[id];
-                    } else {
-                        el.textContent = dict[id];
-                    }
-                }
-            });
-        }
-        (function() {
-            const saved = localStorage.getItem('portfolioTheme');
-            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                setTheme(true);
-            } else {
-                setTheme(false);
-            }
-        })();
-
-        themeToggleBtn.addEventListener('click', function() {
-            const isDark = document.body.classList.contains('dark-theme');
-            setTheme(!isDark);
-        });
-    </script>
 </body>
 </html>
