@@ -6,15 +6,15 @@
     <title>Моё Портфолио</title>
     <link rel="stylesheet" href="style.css">
     <style>
-      /* Глобальные переменные для обеих тем */
       :root {
-        --light-bg: #fff;
-        --light-text: #191919;
-        --light-section: #f2f6ff;
-        --light-section-card: #fff;
-        --light-border: #dbe4fa;
+        --light-bg: #f7faff;
+        --light-text: #21376e; /* более темно-синий */
+        --light-section: linear-gradient(120deg, #eff5ff 0%, #e1eeff 80%, #fbfbff 100%);
+        --light-section-card: #fcfdff;
+        --light-border: #d0d8ed;
         --light-highlight: #4367dc;
         --light-dot: #466cff;
+        --light-shadow: 0 4px 24px 0 rgba(180, 205, 245, 0.22), 0 2px 8px rgba(120, 155, 200, 0.08); 
         --dark-bg: #131524;
         --dark-text: #fff;
         --dark-section: #171a2f;
@@ -22,34 +22,66 @@
         --dark-border: #212448;
         --dark-highlight: #63a9ff;
         --dark-dot: #7aaaff;
+        --dot-color: var(--light-dot);
       }
-      body.light-theme,
-      body.light-theme * {
+
+      /* Убираем выделения фонов у текста (user-select и background) */
+      body, body * {
+        user-select: text;
+        background-image: none !important;
+      }
+
+      body.light-theme {
         background: var(--light-bg) !important;
         color: var(--light-text) !important;
         border-color: var(--light-border) !important;
         transition: background 0.2s, color 0.2s;
       }
+      /* Убираем эффект выделения как в input/focus для текста */
+      body.light-theme ::selection {
+        background: #e6eefe;
+        color: var(--light-text);
+      }
+      /* Сбрасываем выделения для отдельных элементов */
+      body.light-theme *,
+      body.light-theme *:not(input):not(textarea):not(button){
+        background-image: none !important;
+        background: transparent;
+        box-shadow: none;
+        color: var(--light-text) !important;
+        border-color: var(--light-border) !important;
+      }
+
+      body.light-theme .page-shell {
+        background: var(--light-section) !important;
+        color: var(--light-text) !important;
+      }
       body.light-theme .hero,
-      body.light-theme .page-shell,
       body.light-theme .portfolio-section,
       body.light-theme .about-section,
       body.light-theme .cta-section {
         background: var(--light-section) !important;
         color: var(--light-text) !important;
+        background-image: var(--light-section);
       }
       body.light-theme .portfolio-card {
         background: var(--light-section-card) !important;
         color: var(--light-text) !important;
         border: 1px solid var(--light-border) !important;
+        box-shadow: var(--light-shadow) !important;
+        transition: box-shadow 0.22s;
+      }
+      body.light-theme .portfolio-card:hover {
+        box-shadow: 0 8px 36px 0 rgba(180, 205, 245, 0.33), 0 2px 8px rgba(120, 155, 200, 0.10);
       }
       body.light-theme .portfolio-tag {
         color: var(--light-highlight) !important;
       }
       body.light-theme .contact-side-card {
-        background: linear-gradient(120deg, #e8ecfd 65%, #bdd1ff 100%) !important;
+        background: linear-gradient(120deg, #e8ecfd 65%, #dde8ff 100%) !important;
         color: var(--light-text) !important;
         border: 1px solid #bdd1ff !important;
+        box-shadow: 0 4px 24px 0 rgba(200, 217, 250, 0.16), 0 2px 8px rgba(155, 175, 215, 0.07);
       }
       body.light-theme .contact-info-popup {
         background: #f5f7fb !important;
@@ -57,6 +89,7 @@
         border-color: #bdd1ff !important;
       }
 
+      /* Темная тема не меняем */
       body.dark-theme,
       body.dark-theme * {
         background: var(--dark-bg) !important;
@@ -76,6 +109,7 @@
         background: var(--dark-section-card) !important;
         color: var(--dark-text) !important;
         border: 1px solid var(--dark-border) !important;
+        box-shadow: 0 2px 12px rgba(76, 115, 242, 0.11);
       }
       body.dark-theme .portfolio-tag {
         color: var(--dark-highlight) !important;
@@ -101,7 +135,9 @@
         font-size: 0.95em;
         border-radius: 1.1em;
         margin: 0 auto;
-        box-shadow: 0 2px 12px rgba(76, 115, 242, 0.11);
+        box-shadow: var(--light-shadow); /* светлая тень по дефолту */
+        background: var(--light-section-card);
+        transition: box-shadow 0.22s;
       }
       @media (max-width: 500px) {
         .contact-side-card {
@@ -205,7 +241,6 @@
 
     <script src="index.js"></script>
     <script>
-        // ТЕКСТЫ ДЛЯ ТЕМ (дополнительно на весь сайт)
         const texts = {
             dark: {
                 themeIcon: "☀️",
@@ -266,7 +301,6 @@
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
-        // IDs для элементов с изменяемым текстом
         const ids = [
           "mainTitle",
           "mainSubtitle",
@@ -290,35 +324,34 @@
           "contactCardName"
         ];
 
-        // Функция полностью меняет background и text-color у всех элементов
+        // Настройка градиента и текста при смене темы
         function applyThemeStyles(dark) {
             const allElements = document.querySelectorAll('body, body *');
-
             if (dark) {
-                // Тёмная тема — весь текст светлый, все фоны тёмные
                 allElements.forEach(el => {
-                    // Исключение для картинок/иконок — не правим background
                     if (el.tagName === "IMG" || el.classList.contains("icon")) return;
                     el.style.background = "var(--dark-bg)";
                     el.style.color = "var(--dark-text)";
                     el.style.borderColor = "var(--dark-border)";
                 });
-                // Разрешаем override для секций
                 setTimeout(() => {
                     document.querySelectorAll('.hero,.page-shell,.portfolio-section,.about-section,.cta-section').forEach(e => {
                         e.style.background = 'var(--dark-section)';
                         e.style.color = 'var(--dark-text)';
+                        e.style.backgroundImage = '';
                     });
                     document.querySelectorAll('.portfolio-card').forEach(e => {
                         e.style.background = 'var(--dark-section-card)';
                         e.style.color = 'var(--dark-text)';
                         e.style.borderColor = 'var(--dark-border)';
+                        e.style.boxShadow = "0 2px 12px rgba(76, 115, 242, 0.11)";
                     });
                     document.querySelectorAll('.portfolio-tag').forEach(e => e.style.color = 'var(--dark-highlight)');
                     document.querySelectorAll('.contact-side-card').forEach(e => {
                         e.style.background = 'linear-gradient(120deg, #232445 65%, #14162e 100%)';
                         e.style.color = 'var(--dark-text)';
                         e.style.borderColor = '#3044a4';
+                        e.style.boxShadow = '';
                     });
                     document.querySelectorAll('.contact-info-popup').forEach(e => {
                       e.style.background = '#212448';
@@ -327,39 +360,45 @@
                     });
                 }, 10);
             } else {
-                // Светлая тема — весь текст тёмный, все фоны светлые
                 allElements.forEach(el => {
                     if (el.tagName === "IMG" || el.classList.contains("icon")) return;
                     el.style.background = "var(--light-bg)";
                     el.style.color = "var(--light-text)";
                     el.style.borderColor = "var(--light-border)";
+                    el.style.backgroundImage = "none";
                 });
                 setTimeout(() => {
-                    document.querySelectorAll('.hero,.page-shell,.portfolio-section,.about-section,.cta-section').forEach(e => {
-                        e.style.background = 'var(--light-section)';
+                    document.querySelectorAll('.page-shell').forEach(e => {
+                        e.style.background = '';
+                        e.style.backgroundImage = 'var(--light-section)';
+                    });
+                    document.querySelectorAll('.hero,.portfolio-section,.about-section,.cta-section').forEach(e => {
+                        e.style.background = '';
+                        e.style.backgroundImage = 'var(--light-section)';
                         e.style.color = 'var(--light-text)';
                     });
                     document.querySelectorAll('.portfolio-card').forEach(e => {
                         e.style.background = 'var(--light-section-card)';
                         e.style.color = 'var(--light-text)';
                         e.style.borderColor = 'var(--light-border)';
+                        e.style.boxShadow = "0 4px 24px 0 rgba(180, 205, 245, 0.22), 0 2px 8px rgba(120, 155, 200, 0.08)";
                     });
                     document.querySelectorAll('.portfolio-tag').forEach(e => e.style.color = 'var(--light-highlight)');
                     document.querySelectorAll('.contact-side-card').forEach(e => {
-                        e.style.background = 'linear-gradient(120deg, #e8ecfd 65%, #bdd1ff 100%)';
+                        e.style.background = 'linear-gradient(120deg, #e8ecfd 65%, #dde8ff 100%)';
                         e.style.color = 'var(--light-text)';
                         e.style.borderColor = '#bdd1ff';
+                        e.style.boxShadow = "0 4px 24px 0 rgba(200, 217, 250, 0.16), 0 2px 8px rgba(155, 175, 215, 0.07)";
                     });
                     document.querySelectorAll('.contact-info-popup').forEach(e => {
-                      e.style.background = '#f5f7fb';
-                      e.style.color = 'var(--light-text)';
-                      e.style.borderColor = '#bdd1ff';
+                        e.style.background = '#f5f7fb';
+                        e.style.color = 'var(--light-text)';
+                        e.style.borderColor = '#bdd1ff';
                     });
                 }, 10);
             }
         }
 
-        // Установка темы и подмен текстов на всём сайте
         function setTheme(dark) {
             if (dark) {
                 document.body.classList.remove('light-theme');
@@ -376,7 +415,6 @@
             }
         }
 
-        // Подстановка текстов
         function applyTexts(dict) {
             themeIcon.textContent = dict.themeIcon;
             themeText.textContent = dict.themeText;
@@ -384,7 +422,6 @@
             ids.forEach(function(id) {
                 const el = document.getElementById(id);
                 if (el) {
-                    // Для aboutText поддерживаем вложенную разметку, используем innerHTML
                     if (id === "aboutText") {
                         el.innerHTML = dict[id];
                     } else {
@@ -393,7 +430,6 @@
                 }
             });
         }
-        // Первый запуск — проверить сохранённую и системную тему
         (function() {
             const saved = localStorage.getItem('portfolioTheme');
             if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
